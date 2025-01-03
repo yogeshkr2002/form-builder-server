@@ -44,11 +44,6 @@ mongoose
   .then(() => console.log("MongoDB connected successfully"))
   .catch((err) => console.log("MongoDB connection error:", err));
 
-const PORT = process.env.PORT || 8000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
-
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api", typebotRoutes);
@@ -169,4 +164,9 @@ app.use((req, res) => {
 
 app.get("/", (req, res) => {
   res.send("Hello world");
+});
+
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
